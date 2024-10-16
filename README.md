@@ -1,3 +1,5 @@
+
+#karatavas
 import random
 
 #Spēles mērķis: Uzminēt izvēlēto vārdu, minot pa vienam burtam vai visu vārdu.
