@@ -1,6 +1,8 @@
-# karatavas
 import random
 
+#Spēles mērķis: Uzminēt izvēlēto vārdu, minot pa vienam burtam vai visu vārdu.
+#Uzvaras nosacījumi: Spēlētājs uzvar, ja uzmin visu vārdu, pirms izsīkst pieļaujamo kļūdu skaits.
+#Zaudešanas nosacījumi: Spēlētājs zaudē, ja pieļauj pārāk daudz kļūdu (6 nepareizi minējumi), un viss karātavu attēls tiek uzzīmēts.
 # Vārdi latviski
 word_list = ['Dejas', 'Suns', 'Lauva', 'Skola', 'Mamma', 'Pirts', 'Sals', 'Saule', 'Ozols', 'Salaspils']
 
@@ -9,12 +11,10 @@ def izveleties_vardu():
     word = random.choice(word_list)
     return word.upper()
 
-# 2. Lietotāja informācijas ievadīšana
-# Pieprasa lietotājam ievadīt burtu vai vārdu
+# Pieprasa ievadīt burtu vai vārdu
 def ievadit_gajienu():
     return input("Uzmini burtu vai vārdu: ").upper()
 
-# 3. Iegūtās informācijas salīdzināšana ar vārdu
 # Pārbauda, vai ievadītais burts vai vārds ir pareizs, un atjaunina progresu
 def salidzinat_vardu(guess, word, guessed_letters, guessed_words, word_completion, tries):
     if len(guess) == 1 and guess.isalpha():
@@ -47,14 +47,12 @@ def salidzinat_vardu(guess, word, guessed_letters, guessed_words, word_completio
         print("Nepareizs minējums.")
     return word_completion, False, tries
 
-# 4. Informācijas attēlojums
 # Parāda karātavu attēlu un pašreizējo vārda progresu
 def attelot_speeli(tries, word_completion):
     print(display_hangman(tries))
     print(word_completion)
     print("\n")
 
-# 5. Spēles beigas un atkārtošana
 # Noslēdz spēli, dod iespēju spēlēt atkārtoti
 def speles_beigas(guessed, word):
     if guessed:
@@ -148,7 +146,7 @@ def spelet_karatavas():
     
     speles_beigas(guessed, word)
 
-    if input("Vai spēlēt vēlreiz? (Y/N) ").upper() == "Y":
+    if input("Vai spēlēt vēlreiz?").upper() == "Y":
         spelet_karatavas()
 
 if __name__ == "__main__":
